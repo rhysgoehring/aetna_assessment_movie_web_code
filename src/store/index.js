@@ -1,9 +1,9 @@
 import { createStore, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 import logger from "redux-logger";
-import rootReducer from "./rootReducer";
 import { createBrowserHistory } from "history";
 import { routerMiddleware } from "react-router-redux";
+import rootReducer from "./rootReducer";
 
 export const history = createBrowserHistory();
 const historyMiddleware = routerMiddleware(history);

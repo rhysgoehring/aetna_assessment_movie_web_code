@@ -10,9 +10,11 @@ class Home extends Component {
   render() {
     return (
       <div>
-        {this.props.movies.map(movie => (
-          <div>{movie.title}</div>
-        ))}
+        <div className="movie-grid">
+          {this.props.movies.map(movie => (
+            <div key={movie.id}>{movie.title}</div>
+          ))}
+        </div>
       </div>
     );
   }

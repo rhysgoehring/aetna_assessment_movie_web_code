@@ -21,5 +21,6 @@ module.exports = {
     // 'no-return-assign': ['off'],
     "react/prop-types": "off",
     "import/prefer-default-export": "off",
+    "no-console": "off",
   },
 };
