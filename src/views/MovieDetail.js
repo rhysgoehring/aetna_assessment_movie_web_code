@@ -20,6 +20,22 @@ class MovieDetail extends Component {
             <h2 className="movie-detail__heading">{selectedMovie.imdbRating}/10</h2>
           </div>
           <p>{selectedMovie.Plot}</p>
+          <table className="movie-table">
+            <tbody className="movie-table__body">
+              <tr>
+                <td className="movie-table__name">Genres</td>
+                <td className="movie-table__value">{selectedMovie.Genre}</td>
+              </tr>
+              <tr>
+                <td className="movie-table__name">Release Year</td>
+                <td className="movie-table__value">{selectedMovie.Year}</td>
+              </tr>
+              <tr>
+                <td className="movie-table__name">Runtime</td>
+                <td className="movie-table__value">{selectedMovie.Runtime}</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     );
