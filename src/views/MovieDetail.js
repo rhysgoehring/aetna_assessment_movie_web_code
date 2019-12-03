@@ -9,7 +9,6 @@ class MovieDetail extends Component {
   }
 
   render() {
-    console.log(this.props.selectedMovie);
     const { selectedMovie } = this.props;
     return (
       <div className="movie-detail">
