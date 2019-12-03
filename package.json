@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "./node_modules/webpack-serve/lib/cli.js"
+    "start": "./node_modules/webpack-serve/lib/cli.js",
+    "format": "prettier --write \"src/**/*.+(js|jsx|json|css)\""
   },
   "dependencies": {
     "history": "^4.7.2",

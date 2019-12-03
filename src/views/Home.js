@@ -20,11 +20,11 @@ class Home extends Component {
 }
 
 const mapStateToProps = state => ({
-  movies: state.main.movies
+  movies: state.main.movies,
 });
 
 const mapDispatchToProps = dispatch => ({
-  getAllMovies: () => dispatch(getAllMovies())
+  getAllMovies: () => dispatch(getAllMovies()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
