@@ -20,5 +20,6 @@ module.exports = {
     "react-hooks/exhaustive-deps": "warn",
     // 'no-return-assign': ['off'],
     "react/prop-types": "off",
+    "import/prefer-default-export": "off",
   },
 };

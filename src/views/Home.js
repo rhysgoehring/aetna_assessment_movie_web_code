@@ -4,7 +4,6 @@ import { getAllMovies } from "./state/actions";
 
 class Home extends Component {
   componentDidMount() {
-    console.log("home");
     this.props.getAllMovies();
   }
 
