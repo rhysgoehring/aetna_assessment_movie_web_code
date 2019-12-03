@@ -11,7 +11,7 @@ import MoviesService from "../../services/movies";
 //   });
 // };
 
-export const getAllMovies = () => async dispatch => {
+const getAllMovies = () => async dispatch => {
   try {
     const movies = await MoviesService.getAllMovies();
     dispatch({
@@ -24,3 +24,20 @@ export const getAllMovies = () => async dispatch => {
     console.error("getAllMovies action error", error);
   }
 };
+
+const getMovieDetails = imdbId => async dispatch => {
+  try {
+    const movieDetails = await MoviesService.getMovieDetails(imdbId);
+    console.log("movieDetails", movieDetails);
+    dispatch({
+      type: "MOVIE_DETAILS_LOADED",
+      payload: {
+        movieDetails,
+      },
+    });
+  } catch (error) {
+    console.error("getMovieDetails action error", error);
+  }
+};
+
+export { getAllMovies, getMovieDetails };

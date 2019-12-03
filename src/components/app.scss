@@ -13,6 +13,10 @@ body {
   margin: 0 1rem;
 }
 
+.link {
+  text-decoration: none;
+}
+
 .movie-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -35,5 +39,6 @@ body {
 
   &__title {
     text-align: center;
+    color: black;
   }
 }

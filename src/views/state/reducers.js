@@ -10,6 +10,11 @@ export default (state = initialState, action) => {
         ...state,
         movies: action.payload.movies,
       };
+    case "MOVIE_DETAILS_LOADED":
+      return {
+        ...state,
+        selectedMovie: action.payload.movieDetails,
+      };
     default:
       return state;
   }
