@@ -23,9 +23,9 @@ const MovieItem = ({ movie, getDetails, name, year, rating, runtime }) => {
           imdbId: movie.imdbId,
         }}
       >
-        <div className="movie-item">
+        <div className="movie-item" id="movie-item">
           <img className="movie-item__image" alt={movie.title} src={movie.poster} />
-          <p className="movie-item__title">{movie.title}</p>
+          <p className="movie-item__title" id="movie-item__title">{movie.title}</p>
           {hovering && <HoverBox name={name} year={year} rating={rating} runtime={runtime} />}
         </div>
       </Link>
