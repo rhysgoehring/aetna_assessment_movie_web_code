@@ -40,4 +40,17 @@ const getMovieDetails = imdbId => async dispatch => {
   }
 };
 
-export { getAllMovies, getMovieDetails };
+const getMoviesFromSearch = query => async dispatch => {
+  try {
+    const moviesFromSearch = await MoviesService.getMoviesFromSearch(query);
+    console.log("getMoviesFromSearch ", moviesFromSearch);
+    dispatch({
+      type: "QUERIED_MOVIES_LOADED",
+      payload: moviesFromSearch,
+    });
+  } catch (error) {
+    console.error("getMoviesFromSearch action error", error);
+  }
+};
+
+export { getAllMovies, getMovieDetails, getMoviesFromSearch };

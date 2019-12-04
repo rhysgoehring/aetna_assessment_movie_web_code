@@ -1,6 +1,7 @@
 const initialState = {
   movies: [],
   selectedMovie: {},
+  queriedMovies: [],
 };
 
 export default (state = initialState, action) => {
@@ -14,6 +15,11 @@ export default (state = initialState, action) => {
       return {
         ...state,
         selectedMovie: action.payload.movieDetails,
+      };
+    case "QUERIED_MOVIES_LOADED":
+      return {
+        ...state,
+        queriedMovies: action.payload.moviesFromSearch,
       };
     default:
       return state;
