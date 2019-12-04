@@ -118,3 +118,13 @@ header {
     width: 18rem;
   }
 }
+
+.hoverbox {
+  background-color: white;
+  padding: 1rem 1rem;
+  margin: 7.5rem 0 0 7.5rem;
+  position: absolute;
+  border: 2px solid grey;
+  text-align: center;
+  z-index: 999;
+}
