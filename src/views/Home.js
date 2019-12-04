@@ -1,11 +1,18 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getAllMovies } from "./state/actions";
+import { getAllMovies, getMoviesFromSearch } from "./state/actions";
 import MovieItem from "../components/MovieItem";
 
 class Home extends Component {
   componentDidMount() {
-    this.props.getAllMovies();
+    if (this.props.location.search === "") {
+      console.log("no search");
+      this.props.getAllMovies();
+    } else {
+      console.log("search time");
+      const query = this.props.location.search.slice(3);
+      this.props.getMoviesFromSearch(query);
+    }
   }
 
   render() {
@@ -27,6 +34,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   getAllMovies: () => dispatch(getAllMovies()),
+  getMoviesFromSearch: query => dispatch(getMoviesFromSearch(query)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

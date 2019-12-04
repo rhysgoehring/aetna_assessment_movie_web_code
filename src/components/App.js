@@ -13,10 +13,6 @@ class App extends Component {
     };
   }
 
-  // componentDidMount() {
-  //   console.log("this", this.props);
-  // }
-
   handleInputChange = e => {
     this.setState({
       query: e.target.value,
@@ -42,10 +38,6 @@ class App extends Component {
     );
   }
 }
-
-// const mapStateToProps = state => ({
-//   movies: state.main.movies,
-// });
 
 const mapDispatchToProps = dispatch => ({
   getMoviesFromSearch: query => dispatch(getMoviesFromSearch(query)),
