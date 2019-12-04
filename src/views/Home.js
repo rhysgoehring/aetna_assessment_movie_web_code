@@ -6,14 +6,21 @@ import MovieItem from "../components/MovieItem";
 class Home extends Component {
   componentDidMount() {
     if (this.props.location.search === "") {
-      console.log("no search");
       this.props.getAllMovies();
     } else {
-      console.log("search time");
       const query = this.props.location.search.slice(3);
       this.props.getMoviesFromSearch(query);
     }
   }
+
+  componentDidUpdate(prevProps) {
+    const locationChanged = this.props.location !== prevProps.location;
+
+    if (locationChanged && this.props.location.search === "") {
+      this.props.getAllMovies();
+    }
+  }
+
 
   render() {
     return (
