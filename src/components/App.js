@@ -1,21 +1,27 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { getMoviesFromSearch } from "../views/state/actions";
 import TitleSearch from "./TitleSearch";
 import "./app.scss";
 
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      query: "",
+    };
   }
 
   handleInputChange = e => {
-    console.log("inputChange e", e.target.value);
+    this.setState({
+      query: e.target.value,
+    });
   };
 
   handleSearchSubmit = e => {
     e.preventDefault();
-    console.log("searchSubmit", e);
+    this.props.getMoviesFromSearch(this.state.query);
   };
 
   render() {
@@ -33,4 +39,12 @@ class App extends Component {
   }
 }
 
-export default App;
+// const mapStateToProps = state => ({
+//   movies: state.main.movies,
+// });
+
+const mapDispatchToProps = dispatch => ({
+  getMoviesFromSearch: query => dispatch(getMoviesFromSearch(query)),
+});
+
+export default connect(null, mapDispatchToProps)(App);

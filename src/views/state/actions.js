@@ -42,11 +42,14 @@ const getMovieDetails = imdbId => async dispatch => {
 
 const getMoviesFromSearch = query => async dispatch => {
   try {
+    console.log("search term: ", query);
     const moviesFromSearch = await MoviesService.getMoviesFromSearch(query);
-    console.log("getMoviesFromSearch ", moviesFromSearch);
+    console.log("moviesFromSearch: ", moviesFromSearch);
     dispatch({
       type: "QUERIED_MOVIES_LOADED",
-      payload: moviesFromSearch,
+      payload: {
+        moviesFromSearch,
+      },
     });
   } catch (error) {
     console.error("getMoviesFromSearch action error", error);
