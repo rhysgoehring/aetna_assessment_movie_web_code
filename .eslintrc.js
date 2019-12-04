@@ -25,7 +25,7 @@ module.exports = {
     "no-shadow": [
       "error",
       {
-        allow: ["getMoviesFromSearch", "getAllMovies",],
+        allow: ["getMoviesFromSearch", "getAllMovies", "getMovieDetails"],
       },
     ],
   },

@@ -4,34 +4,39 @@ import { getMovieDetails } from "./state/actions";
 
 class MovieDetail extends Component {
   componentDidMount() {
-    const { imdbId } = this.props.location;
-    this.props.getMovieDetails(imdbId);
+    const {
+      location: { imdbId },
+      getMovieDetails,
+    } = this.props;
+    getMovieDetails(imdbId);
   }
 
   render() {
-    const { selectedMovie } = this.props;
+    const {
+      selectedMovie: { Poster, Title, imdbRating, Plot, Genre, Year, Runtime },
+    } = this.props;
     return (
       <div className="movie-detail">
-        <img className="movie-detail__image" src={selectedMovie.Poster} alt={selectedMovie.Title} />
+        <img className="movie-detail__image" src={Poster} alt={Title} />
         <div className="movie-detail__info">
           <div className="movie-detail__title">
-            <h2 className="movie-detail__heading">{selectedMovie.Title}</h2>
-            <h2 className="movie-detail__heading">{selectedMovie.imdbRating}/10</h2>
+            <h2 className="movie-detail__heading">{Title}</h2>
+            <h2 className="movie-detail__heading">{imdbRating}/10</h2>
           </div>
-          <p>{selectedMovie.Plot}</p>
+          <p>{Plot}</p>
           <table className="movie-table">
             <tbody className="movie-table__body">
               <tr>
                 <td className="movie-table__name">Genres</td>
-                <td className="movie-table__value">{selectedMovie.Genre}</td>
+                <td className="movie-table__value">{Genre}</td>
               </tr>
               <tr>
                 <td className="movie-table__name">Release Year</td>
-                <td className="movie-table__value">{selectedMovie.Year}</td>
+                <td className="movie-table__value">{Year}</td>
               </tr>
               <tr>
                 <td className="movie-table__name">Runtime</td>
-                <td className="movie-table__value">{selectedMovie.Runtime}</td>
+                <td className="movie-table__value">{Runtime}</td>
               </tr>
             </tbody>
           </table>
