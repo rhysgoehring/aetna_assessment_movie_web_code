@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getAllMovies, getMoviesFromSearch } from "./state/actions";
+import { getAllMovies, getMoviesFromSearch, getMovieDetails } from "./state/actions";
 import MovieItem from "../components/MovieItem";
 
 class Home extends Component {
@@ -21,13 +21,25 @@ class Home extends Component {
     }
   }
 
+  getMovieDetails = imdbId => {
+    console.log("imdbId", imdbId);
+    this.props.getMovieDetails(imdbId);
+  };
 
   render() {
     return (
       <div>
         <div className="movie-grid">
           {this.props.movies.map(movie => (
-            <MovieItem key={movie.id} movie={movie} />
+            <MovieItem
+              key={movie.id}
+              movie={movie}
+              getDetails={this.getMovieDetails}
+              name={this.props.selectedMovie.Title}
+              year={this.props.selectedMovie.Year}
+              rating={this.props.selectedMovie.imdbRating}
+              runtime={this.props.selectedMovie.Runtime}
+            />
           ))}
         </div>
       </div>
@@ -37,11 +49,13 @@ class Home extends Component {
 
 const mapStateToProps = state => ({
   movies: state.main.movies,
+  selectedMovie: state.main.selectedMovie,
 });
 
 const mapDispatchToProps = dispatch => ({
   getAllMovies: () => dispatch(getAllMovies()),
   getMoviesFromSearch: query => dispatch(getMoviesFromSearch(query)),
+  getMovieDetails: imdbId => dispatch(getMovieDetails(imdbId)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

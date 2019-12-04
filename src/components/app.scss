@@ -121,10 +121,11 @@ header {
 
 .hoverbox {
   background-color: white;
-  padding: 1rem 1rem;
+  padding: 0 3rem 0 1rem;
   margin: 7.5rem 0 0 7.5rem;
   position: absolute;
   border: 2px solid grey;
-  text-align: center;
+  text-align: left;
   z-index: 999;
+  color: black;
 }
