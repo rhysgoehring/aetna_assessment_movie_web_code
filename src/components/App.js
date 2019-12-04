@@ -3,36 +3,34 @@ import { Link } from "react-router-dom";
 import TitleSearch from "./TitleSearch";
 import "./app.scss";
 
-// class App extends Component {
-//   render() {
-//     return (
-//       <div className="app">
-//         <header>
-//           <Link to="/" alt="The Movie List" className="title">
-//             <h1 className="title">The Movie List</h1>
-//           </Link>
-//           <TitleSearch />
-//         </header>
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
 
-//         {this.props.children}
-//       </div>
-//     );
-//   }
-// }
+  handleInputChange = e => {
+    console.log("inputChange e", e.target.value);
+  };
 
-const App = ({ children }) => {
-  return (
-    <div className="app">
-      <header>
-        <Link to="/" alt="The Movie List" className="title">
-          <h1 className="title">The Movie List</h1>
-        </Link>
-        <TitleSearch />
-      </header>
+  handleSearchSubmit = e => {
+    e.preventDefault();
+    console.log("searchSubmit", e);
+  };
 
-      {children}
-    </div>
-  );
-};
+  render() {
+    return (
+      <div className="app">
+        <header>
+          <Link to="/" alt="The Movie List" className="title">
+            <h1 className="title">The Movie List</h1>
+          </Link>
+          <TitleSearch onChange={this.handleInputChange} onSubmit={this.handleSearchSubmit} />
+        </header>
+        {this.props.children}
+      </div>
+    );
+  }
+}
 
 export default App;

@@ -1,39 +1,49 @@
-const path = require('path');
+const path = require("path");
 
 const config = {
-  mode: 'development',
-  stats: 'verbose',
+  mode: "development",
+  stats: "verbose",
   entry: {
-    app: './src/entry',
+    app: "./src/entry",
   },
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, "dist"),
   },
   module: {
-    rules: [{
-      test: /\.jsx?$/,
-      use: [{
-        loader: 'babel-loader',
-        options: {
-          presets: ['es2015', 'react'],
-        },
-      }],
-    }, {
-      test: /\.scss$/,
-      use: [{
-        loader: "style-loader"
-      }, {
-        loader: "css-loader"
-      }, {
-        loader: "sass-loader",
-      }],
-    }],
+    rules: [
+      {
+        test: /\.jsx?$/,
+        use: [
+          {
+            loader: "babel-loader",
+            options: {
+              presets: ["es2015", "react"],
+              plugins: ["transform-object-rest-spread", "transform-class-properties"],
+            },
+          },
+        ],
+      },
+      {
+        test: /\.scss$/,
+        use: [
+          {
+            loader: "style-loader",
+          },
+          {
+            loader: "css-loader",
+          },
+          {
+            loader: "sass-loader",
+          },
+        ],
+      },
+    ],
   },
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: [".js", ".jsx"],
   },
   serve: {
-    content: './public',
+    content: "./public",
     port: 3000,
   },
 };
