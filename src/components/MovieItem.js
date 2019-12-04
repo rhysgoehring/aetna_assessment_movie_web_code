@@ -11,7 +11,11 @@ const MovieItem = ({ movie, getDetails, name, year, rating, runtime }) => {
   };
 
   return (
-    <div onMouseOver={handleMouseOver} onMouseLeave={() => setHovering(false)}>
+    <div
+      onFocus={handleMouseOver}
+      onMouseOver={handleMouseOver}
+      onMouseLeave={() => setHovering(false)}
+    >
       <Link
         className="link"
         to={{
