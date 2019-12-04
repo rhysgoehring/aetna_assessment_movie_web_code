@@ -1,4 +1,5 @@
 import MoviesService from "../../services/movies";
+import { history } from "../../store";
 
 // export const getAllMovies = () => dispatch => {
 //   MoviesService.getAllMovies().then(movies => {
@@ -40,17 +41,25 @@ const getMovieDetails = imdbId => async dispatch => {
   }
 };
 
+// `http://localhost:3000/?q=Time`
+
 const getMoviesFromSearch = query => async dispatch => {
   try {
-    console.log("search term: ", query);
     const moviesFromSearch = await MoviesService.getMoviesFromSearch(query);
-    console.log("moviesFromSearch: ", moviesFromSearch);
     dispatch({
       type: "QUERIED_MOVIES_LOADED",
       payload: {
         moviesFromSearch,
       },
     });
+    console.log("history", history);
+    // if (history.location.pathname === "/") {
+    //   console.log("on home page");
+    //   history.push('/')
+    // } else {
+    //   console.log("on MovieDetal page");
+    // }
+    history.push(`/?q=${query}`);
   } catch (error) {
     console.error("getMoviesFromSearch action error", error);
   }

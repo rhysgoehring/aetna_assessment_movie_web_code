@@ -13,6 +13,10 @@ class App extends Component {
     };
   }
 
+  // componentDidMount() {
+  //   console.log("this", this.props);
+  // }
+
   handleInputChange = e => {
     this.setState({
       query: e.target.value,

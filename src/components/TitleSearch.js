@@ -1,7 +1,6 @@
 import React from "react";
 
 const TitleSearch = ({ onChange, onSubmit }) => {
-  // const [query, setQuery] = useState("");
   return (
     <form onSubmit={onSubmit} className="title-search">
       <input
@@ -10,7 +9,7 @@ const TitleSearch = ({ onChange, onSubmit }) => {
         className="title-search__input"
         placeholder="Find a movie..."
       />
-      <button type="submit" className="title-search__button">
+      <button onSubmit={onSubmit} type="submit" className="title-search__button">
         Search
       </button>
     </form>
